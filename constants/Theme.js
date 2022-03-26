@@ -14,8 +14,10 @@ export const SIZES = {
   padding: 10,
 
   // fontsize
-  h1: 30,
-  h2: 22,
+  h1: 40,
+  h2: 30,
+  h3: 22,
+  h4: 18,
 };
 
 export const COLORS = {
