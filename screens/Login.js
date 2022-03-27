@@ -86,48 +86,50 @@ const Login = () => {
   };
 
   return (
-    <Dview style={styles.container}>
-      <Loader visible={loading} />
-      <Dtext fc={COLORS.black} fs={SIZES.h1} fw="bold">
-        Login
-      </Dtext>
-      <Dtext fc={COLORS.grey} fs={SIZES.h4} my={10}>
-        Enter Your Details to Login
-      </Dtext>
-      <Dview my={20}>
-        <Input
-          label="Email"
-          iconName="email-outline"
-          placeholder="Enter your email address"
-          onChangeText={(text) => handleOnChange(text, "email")}
-          error={errors.email}
-          onFocus={() => {
-            handleError(null, "email");
-          }}
-        />
-
-        <Input
-          label="Password"
-          iconName="lock-outline"
-          placeholder="Enter your password"
-          password
-          onChangeText={(text) => handleOnChange(text, "password")}
-          error={errors.password}
-          onFocus={() => {
-            handleError(null, "password");
-          }}
-        />
-        <Button title="Login" onPress={validate} />
-        <Dtext
-          fc={COLORS.black}
-          fs={16}
-          text="center"
-          onPress={() => navigation.navigate("Register")}
-        >
-          Don't have an account ? Register
+    <DformContainer>
+      <Dview style={styles.container}>
+        <Loader visible={loading} />
+        <Dtext fc={COLORS.black} fs={SIZES.h1} fw="bold">
+          Login
         </Dtext>
+        <Dtext fc={COLORS.grey} fs={SIZES.h4} my={10}>
+          Enter Your Details to Login
+        </Dtext>
+        <Dview my={20}>
+          <Input
+            label="Email"
+            iconName="email-outline"
+            placeholder="Enter your email address"
+            onChangeText={(text) => handleOnChange(text, "email")}
+            error={errors.email}
+            onFocus={() => {
+              handleError(null, "email");
+            }}
+          />
+
+          <Input
+            label="Password"
+            iconName="lock-outline"
+            placeholder="Enter your password"
+            password
+            onChangeText={(text) => handleOnChange(text, "password")}
+            error={errors.password}
+            onFocus={() => {
+              handleError(null, "password");
+            }}
+          />
+          <Button title="Login" onPress={validate} />
+          <Dtext
+            fc={COLORS.black}
+            fs={16}
+            text="center"
+            onPress={() => navigation.navigate("Register")}
+          >
+            Don't have an account ? Register
+          </Dtext>
+        </Dview>
       </Dview>
-    </Dview>
+    </DformContainer>
   );
 };
 

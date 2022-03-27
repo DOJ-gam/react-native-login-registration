@@ -1,25 +1,25 @@
 import { StyleSheet } from "react-native";
 import React from "react";
-import { Dbutton, Dtext, Dview } from "react-native-ui-doj";
-import { COLORS, SIZES } from "../constants/Theme";
+import { Dbutton, Dimage, Dtext, Dview } from "react-native-ui-doj";
+import { COLORS, IMAGES, SIZES } from "../constants/Theme";
 
 const HomeHeader = () => {
   return (
     <Dview style={styles.container}>
       <Dview style={styles.innerContainer}>
         <Dview style={styles.left}>
-          <Dtext fs={SIZES.h2} fc={COLORS.white} fw="bold">
-            Nduga
+          <Dtext fs={SIZES.h3} fc={COLORS.grey} fw="bold">
+            DOJ UI
           </Dtext>
-          <Dtext fs={SIZES.h1} fc={COLORS.white} fw="bold" mt={10}>
-            FREE LETTUCE {"\n"}
-            ON EVERY {"\n"}
-            PURCHASE
+          <Dtext fs={SIZES.h2} fc={"pink"} fw="bold" mt={10}>
+            Best {"\n"}
+            React Native{"\n"}
+            UI Library
           </Dtext>
-          <Dbutton bg={COLORS.purple} p={10} w="90%" my={10}>
+          <Dbutton bg={COLORS.light} p={10} w="90%" my={10}>
             <Dtext
               fs={18}
-              fc={"white"}
+              fc={COLORS.blue}
               fw="bold"
               style={{ textAlign: "center" }}
             >
@@ -28,7 +28,7 @@ const HomeHeader = () => {
           </Dbutton>
         </Dview>
         <Dview style={styles.right}>
-          <Dtext>Lettce Image</Dtext>
+          <Dimage src={IMAGES.doj} h={200} w={120} br={10} />
         </Dview>
       </Dview>
     </Dview>
@@ -40,16 +40,18 @@ export default HomeHeader;
 const styles = StyleSheet.create({
   container: {
     height: 220,
+    marginTop: 50,
     borderLeftWidth: 8,
     borderRightWidth: 8,
     paddingHorizontal: 10,
-    borderColor: COLORS.green,
+    borderColor: COLORS.blue,
   },
   innerContainer: {
-    backgroundColor: COLORS.orange,
+    backgroundColor: COLORS.darkBlue,
     height: "100%",
     padding: 10,
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "space-between",
   },
 });

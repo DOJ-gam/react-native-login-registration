@@ -4650,10 +4650,10 @@
     "react-freeze" "^1.0.0"
     "warn-once" "^0.1.0"
 
-"react-native-ui-doj@^1.0.20":
-  "integrity" "sha512-lYZyOoLqckVSigvYUtm6G/3v8W9F6G2Vc/qGB4+6spL1oOFbYlwYV+s7DzKLvSz9r9XRCWadkbjb7YWSJVoDrA=="
-  "resolved" "https://registry.npmjs.org/react-native-ui-doj/-/react-native-ui-doj-1.0.20.tgz"
-  "version" "1.0.20"
+"react-native-ui-doj@^1.0.24":
+  "integrity" "sha512-UV2P29DPSZzJXrj+uRgbc6E2M+7HCf5SAd4epfW9azqwIZj8ZKveRSvkheKY0bQOdhEYuDSeyoqPkZTYk40MVg=="
+  "resolved" "https://registry.npmjs.org/react-native-ui-doj/-/react-native-ui-doj-1.0.24.tgz"
+  "version" "1.0.24"
 
 "react-native-web@0.17.1":
   "integrity" "sha512-lUnn+2O8ynQ6/gJKylSxm7DLi2vHw6AujdDV1+LSa8Epe1bYFJNUcJTEhJf0jNYUFGOujzMtuG8Mkz3HdWTkag=="

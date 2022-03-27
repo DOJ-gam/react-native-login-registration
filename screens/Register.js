@@ -87,68 +87,70 @@ const Register = () => {
   };
 
   return (
-    <Dview style={styles.container}>
-      <Loader visible={loading} />
-      <Dtext fc={COLORS.black} fs={SIZES.h1} fw="bold">
-        Register
-      </Dtext>
-      <Dtext fc={COLORS.grey} fs={SIZES.h4} my={10}>
-        Enter Your Details to Register
-      </Dtext>
-      <Dview my={20}>
-        <Input
-          label="Email"
-          iconName="email-outline"
-          placeholder="Enter your email address"
-          onChangeText={(text) => handleOnChange(text, "email")}
-          error={errors.email}
-          onFocus={() => {
-            handleError(null, "email");
-          }}
-        />
-        <Input
-          label="Fullname"
-          iconName="account-outline"
-          placeholder="Enter your Fullname"
-          onChangeText={(text) => handleOnChange(text, "fullname")}
-          error={errors.fullname}
-          onFocus={() => {
-            handleError(null, "fullname");
-          }}
-        />
-        <Input
-          keyboardType="numeric"
-          label="Phone Number"
-          iconName="phone-outline"
-          placeholder="Enter your Phone Nummber"
-          onChangeText={(text) => handleOnChange(text, "phone")}
-          error={errors.phone}
-          onFocus={() => {
-            handleError(null, "phone");
-          }}
-        />
-        <Input
-          label="Password"
-          iconName="lock-outline"
-          placeholder="Enter your password"
-          password
-          onChangeText={(text) => handleOnChange(text, "password")}
-          error={errors.password}
-          onFocus={() => {
-            handleError(null, "password");
-          }}
-        />
-        <Button title="Register" onPress={validate} />
-        <Dtext
-          fc={COLORS.black}
-          fs={16}
-          text="center"
-          onPress={() => navigation.navigate("Login")}
-        >
-          Already have an account ? Login
+    <DformContainer>
+      <Dview style={styles.container}>
+        <Loader visible={loading} />
+        <Dtext fc={COLORS.black} fs={SIZES.h1} fw="bold">
+          Register
         </Dtext>
+        <Dtext fc={COLORS.grey} fs={SIZES.h4} my={10}>
+          Enter Your Details to Register
+        </Dtext>
+        <Dview my={20}>
+          <Input
+            label="Email"
+            iconName="email-outline"
+            placeholder="Enter your email address"
+            onChangeText={(text) => handleOnChange(text, "email")}
+            error={errors.email}
+            onFocus={() => {
+              handleError(null, "email");
+            }}
+          />
+          <Input
+            label="Fullname"
+            iconName="account-outline"
+            placeholder="Enter your Fullname"
+            onChangeText={(text) => handleOnChange(text, "fullname")}
+            error={errors.fullname}
+            onFocus={() => {
+              handleError(null, "fullname");
+            }}
+          />
+          <Input
+            keyboardType="numeric"
+            label="Phone Number"
+            iconName="phone-outline"
+            placeholder="Enter your Phone Nummber"
+            onChangeText={(text) => handleOnChange(text, "phone")}
+            error={errors.phone}
+            onFocus={() => {
+              handleError(null, "phone");
+            }}
+          />
+          <Input
+            label="Password"
+            iconName="lock-outline"
+            placeholder="Enter your password"
+            password
+            onChangeText={(text) => handleOnChange(text, "password")}
+            error={errors.password}
+            onFocus={() => {
+              handleError(null, "password");
+            }}
+          />
+          <Button title="Register" onPress={validate} />
+          <Dtext
+            fc={COLORS.black}
+            fs={16}
+            text="center"
+            onPress={() => navigation.navigate("Login")}
+          >
+            Already have an account ? Login
+          </Dtext>
+        </Dview>
       </Dview>
-    </Dview>
+    </DformContainer>
   );
 };
 
