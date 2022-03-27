@@ -5,6 +5,7 @@ import { COLORS, SIZES } from "../constants/Theme";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { useNavigation } from "@react-navigation/native";
+import Loader from "../components/Loader";
 
 const Register = () => {
   const navigation = useNavigation();
@@ -49,8 +50,17 @@ const Register = () => {
       valid = false;
     } else if (inputs.password.length < 5) {
       handleError("Min password length is 5", "password");
+      valid = false;
+    }
+
+    // if validation is passed
+    if (valid) {
+      register();
     }
   };
+
+  // Register Func
+  const register = () => {};
 
   // handleChange func
   const handleOnChange = (text, input) => {
@@ -64,6 +74,7 @@ const Register = () => {
 
   return (
     <Dview style={styles.container}>
+      <Loader visible={true} />
       <Dtext fc={COLORS.black} fs={SIZES.h1} fw="bold">
         Register
       </Dtext>
