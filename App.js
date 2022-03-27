@@ -13,7 +13,7 @@ export default function App() {
     <NavigationContainer>
       <StatusBar style="transparent" />
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Registration" component={Register} />
+        <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
