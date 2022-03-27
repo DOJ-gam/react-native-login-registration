@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native";
-import React from "react";
+import { StyleSheet, Keyboard } from "react-native";
+import React, { useState } from "react";
 import { DformContainer, Dtext, Dview } from "react-native-ui-doj";
 import { COLORS, SIZES } from "../constants/Theme";
 import Input from "../components/Input";
@@ -8,10 +8,62 @@ import { useNavigation } from "@react-navigation/native";
 
 const Register = () => {
   const navigation = useNavigation();
-  const validate = () => {};
+
+  // states
+  const [inputs, setInputs] = useState({
+    email: "",
+    fullname: "",
+    phone: "",
+    password: "",
+  });
+  const [errors, setErrors] = useState({});
+
+  // validate func
+  const validate = () => {
+    // hide keyboard
+    Keyboard.dismiss();
+    //initialize form validity
+    let valid = true;
+
+    // Validate Email
+    if (!inputs.email) {
+      handleError("Please input email", "email");
+      valid = false;
+    } else if (!inputs.email.match(/\S=@\S+\.\S+/)) {
+      handleError("Please input valid email", "email");
+      valid = false;
+    }
+    // validate fullname
+    if (!inputs.fullname) {
+      handleError("Please input Fullname", "fullname");
+      valid = false;
+    }
+    // validate Phone Numner
+    if (!inputs.phone) {
+      handleError("Please input Phone", "phone");
+      valid = false;
+    }
+    // validate Password
+    if (!inputs.password) {
+      handleError("Please input Password", "password");
+      valid = false;
+    } else if (inputs.password.length < 5) {
+      handleError("Min password length is 5", "password");
+    }
+  };
+
+  // handleChange func
+  const handleOnChange = (text, input) => {
+    setInputs((prev) => ({ ...prev, [input]: text }));
+  };
+
+  // handleError func
+  const handleError = (errorMessage, input) => {
+    setErrors((prev) => ({ ...prev, [input]: errorMessage }));
+  };
 
   return (
-    <DformContainer style={styles.container}>
+    <Dview style={styles.container}>
       <Dtext fc={COLORS.black} fs={SIZES.h1} fw="bold">
         Register
       </Dtext>
@@ -23,26 +75,43 @@ const Register = () => {
           label="Email"
           iconName="email-outline"
           placeholder="Enter your email address"
-          // error="Input email"
+          onChangeText={(text) => handleOnChange(text, "email")}
+          error={errors.email}
+          onFocus={() => {
+            handleError(null, "email");
+          }}
         />
         <Input
           label="Fullname"
           iconName="account-outline"
           placeholder="Enter your Fullname"
-          // error="Input email"
+          onChangeText={(text) => handleOnChange(text, "fullname")}
+          error={errors.fullname}
+          onFocus={() => {
+            handleError(null, "fullname");
+          }}
         />
         <Input
+          keyboardType="numeric"
           label="Phone Number"
           iconName="phone-outline"
           placeholder="Enter your Phone Nummber"
-          // error="Input email"
+          onChangeText={(text) => handleOnChange(text, "phone")}
+          error={errors.phone}
+          onFocus={() => {
+            handleError(null, "phone");
+          }}
         />
         <Input
           label="Password"
           iconName="lock-outline"
           placeholder="Enter your password"
           password
-          // error="Input email"
+          onChangeText={(text) => handleOnChange(text, "password")}
+          error={errors.password}
+          onFocus={() => {
+            handleError(null, "password");
+          }}
         />
         <Button title="Register" onPress={validate} />
         <Dtext
@@ -54,7 +123,7 @@ const Register = () => {
           Already have an account ? Login
         </Dtext>
       </Dview>
-    </DformContainer>
+    </Dview>
   );
 };
 
