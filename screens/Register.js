@@ -1,4 +1,4 @@
-import { StyleSheet, Keyboard } from "react-native";
+import { StyleSheet, Keyboard, Alert } from "react-native";
 import React, { useState } from "react";
 import { DformContainer, Dtext, Dview } from "react-native-ui-doj";
 import { COLORS, SIZES } from "../constants/Theme";
@@ -6,6 +6,7 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import { useNavigation } from "@react-navigation/native";
 import Loader from "../components/Loader";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Register = () => {
   const navigation = useNavigation();
@@ -30,7 +31,7 @@ const Register = () => {
     if (!inputs.email) {
       handleError("Please input email", "email");
       valid = false;
-    } else if (!inputs.email.match(/\S=@\S+\.\S+/)) {
+    } else if (!inputs.email.match(/\S+@\S+\.\S+/)) {
       handleError("Please input valid email", "email");
       valid = false;
     }
@@ -60,7 +61,20 @@ const Register = () => {
   };
 
   // Register Func
-  const register = () => {};
+  const register = async () => {
+    setLoading(true);
+
+    setTimeout(async () => {
+      setLoading(false);
+
+      try {
+        await AsyncStorage.setItem("user", JSON.stringify(inputs));
+        navigation.navigate("Login");
+      } catch (error) {
+        Alert.alert("Error", "Something went wrong");
+      }
+    }, 3000);
+  };
 
   // handleChange func
   const handleOnChange = (text, input) => {
