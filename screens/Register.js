@@ -18,7 +18,7 @@ const Register = () => {
     password: "",
   });
   const [errors, setErrors] = useState({});
-
+  const [loading, setLoading] = useState(false);
   // validate func
   const validate = () => {
     // hide keyboard
@@ -74,7 +74,7 @@ const Register = () => {
 
   return (
     <Dview style={styles.container}>
-      <Loader visible={true} />
+      <Loader visible={loading} />
       <Dtext fc={COLORS.black} fs={SIZES.h1} fw="bold">
         Register
       </Dtext>
